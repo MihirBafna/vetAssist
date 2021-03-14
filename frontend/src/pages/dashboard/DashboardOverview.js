@@ -16,7 +16,6 @@ export default () => {
           <Button variant="outline-primary" size="sm">Export</Button>
         </ButtonGroup>
       </div> */}
-      <br/>
       <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <ToDoListWidget

@@ -1,8 +1,8 @@
 import React from "react";
-import { Col, Row, Button, Dropdown, ButtonGroup, Card, ListGroup} from '@themesberg/react-bootstrap';
+import { Col, Row, Button, Dropdown, ButtonGroup, Card, ListGroup, Image} from '@themesberg/react-bootstrap';
 import '../styles/JournalPage.css'
 import {useEffect, useState} from 'react'
-
+import notebook from '../assets/img/illustrations/notebook.svg'
 
 
 
@@ -15,7 +15,7 @@ const entryContent = (props) =>
         <>
             <Row>
                 <Col>
-                    <h3>Journal {props["date"]["$numberDouble"]}</h3>
+                    <h3>{new Date(parseInt(props["date"]["$numberDouble"])).toString().slice(0,21)}</h3>
                 </Col>
                 
             </Row>
@@ -23,7 +23,7 @@ const entryContent = (props) =>
             <Row>
                 <Col>
                     <h5>
-                        How were you feeling?
+                        How was your day?
                     </h5>
                     <p>
                         " {props["content"]} "
@@ -34,6 +34,23 @@ const entryContent = (props) =>
 
     )
 
+const defaultEntryContent = () => 
+    (
+        <>
+        <Row>
+        <Col className="my-auto">
+            <h5>
+                Click on the left to look through your journals!
+            </h5>
+        </Col>
+        <Col>
+            <Image src={notebook} style={{height:"65vh"}}/>
+
+        </Col>
+        </Row>
+
+        </>
+    )
 
 useEffect(() => {
     async function fetchData(){
@@ -52,7 +69,7 @@ fetchData()
 
 const listItems = journalEntries.map((entry, index) =>
     <ListGroup.Item href={"#link"+index} className="listitem" onClick={(e) => openDashboard(e,index)}>
-        {entry["date"]["$numberDouble"]}
+        {(new Date(parseInt(entry["date"]["$numberDouble"]))).toString().slice(0,21)}
     </ListGroup.Item>
 );
 
@@ -68,8 +85,8 @@ let openDashboard = (e, index) => {
     return(
         <>
             <Row className="">
-                <Col sm={4} className="">
-                    <Card border="light" className="shadow-sm ">
+                <Col sm={4} className="" style={{overflowY:"scroll"}}>
+                    <Card border="light" className="shadow-sm " >
                         <Card.Body>
                                 <h3>Journals</h3>
                                 <hr/>
@@ -78,10 +95,10 @@ let openDashboard = (e, index) => {
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col sm={8} className="">
+                <Col sm={8} className="" style={{overflowY:"scroll"}}>
                     <Card border="light" className="shadow-sm">
                         <Card.Body>
-                        {dashboardElem != null ? entryContent(dashboardElem) : null }          
+                        {dashboardElem != null ? entryContent(dashboardElem) : defaultEntryContent() }          
                         </Card.Body>
                     </Card>
                 </Col>
