@@ -96,7 +96,7 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="VetAssist" link={Routes.LandingPage.path} image={ReactHero} />
+              <NavItem title="VetConnect" link={Routes.LandingPage.path} image={ReactHero} />
               <Dropdown.Divider className="my-3 border-indigo" />
 
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />

@@ -102,7 +102,6 @@ const CustomSkinMap = withScriptjs(
 );
 
 export default  () => {
-  console.log(process.env.REACT_APP_MAP_API_KEY)
   return (
     <>
     <CustomSkinMap
