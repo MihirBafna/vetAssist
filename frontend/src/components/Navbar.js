@@ -1,17 +1,32 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCog, faEnvelopeOpen, faSearch, faSignOutAlt, faUserShield } from "@fortawesome/free-solid-svg-icons";
 import { faUserCircle } from "@fortawesome/free-regular-svg-icons";
 import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, InputGroup } from '@themesberg/react-bootstrap';
 import { Routes } from "../routes";
 import { Link } from 'react-router-dom';
-
+import {Auth} from 'aws-amplify'
 import Profile3 from "../assets/img/team/profile-picture-3.jpg";
 
 
 export default (props) => {
 
+  const [profUrl, setProfUrl] = useState("")
+ 
+  useEffect(() => {
+    async function retrieve() {
+      await Auth.currentUserInfo()
+      .then( (session) => {
+          setProfUrl(session.attributes["custom:profile_picture"])
+          return;
+      }).catch( (error) => {
+          console.log(error);
+          return;
+      })
+    }
+    retrieve()
+  },[])
 
   return (
     <Navbar variant="dark" expanded className="ps-0 pe-2 pb-0">
@@ -24,7 +39,7 @@ export default (props) => {
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle as={Nav.Link} className="pt-1 px-0">
                 <div className="media d-flex align-items-center">
-                  <Image src={Profile3} className="user-avatar md-avatar rounded-circle" />
+                  <Image src={profUrl} className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                     <span className="mb-0 font-small fw-bold">Bonnie Green</span>
                   </div>
