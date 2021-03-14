@@ -105,7 +105,7 @@ export default  () => {
   return (
     <>
     <CustomSkinMap
-      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3288180JTpPea4rwaxhB2e4Rkxypg2no"
+      googleMapURL=""
       loadingElement={<div style={{ height: `100%` }} />}
       containerElement={<div style={{ height: `85vh` }} />}
       mapElement={<div style={{ height: `100%` }} />}
