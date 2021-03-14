@@ -41,7 +41,7 @@ export default () => {
             username: email,
             password: password,
             attributes: {
-            birthdate: birthday,
+            birthdate: birthday.format("MM/DD/YYYY"),
             given_name: firstName,
             family_name: lastName,
             email: email

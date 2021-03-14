@@ -5,10 +5,12 @@ import { Col, Row, Button, Dropdown, ButtonGroup} from '@themesberg/react-bootst
 import { ToDoListWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {Auth} from 'aws-amplify'
 
 export default () => {
+  const [surveyEntries, setSurveyEntries] = useState([])
+
   useEffect(() => {
     async function retrieveAttributes() {
       try{
@@ -23,6 +25,27 @@ export default () => {
     }
     retrieveAttributes()
   })
+
+useEffect(() => {
+    async function fetchData(){
+    if( surveyEntries.length == 0){
+    await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getHappinessScores/incoming_webhook/getHappinessScores?user_id=dummy`)
+    .then(response => response.json())
+    .then(result => {
+        console.log(result["dummy"])
+        var entries = []
+        for (var i = 0; i < result["dummy"].length; i++) {
+          entries.push(result["dummy"][`${i}`]["total_score"]["$numberDouble"])
+        }
+        console.log(entries)
+        setSurveyEntries(entries)
+    }
+    )
+    }
+}
+fetchData()
+
+},[])
 
   return (
     <>
@@ -43,13 +66,13 @@ export default () => {
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
             title="Let's check how your week has been!"
-            values= {[24,24,24,25]}
+            values= {surveyEntries}
           />
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
           <SalesValueWidgetPhone
             title="Let's check how your week has been!"
-            values= {[24,24,24,25]}
+            values= {surveyEntries}
           />
         </Col>
       </Row>

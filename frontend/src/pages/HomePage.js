@@ -6,6 +6,7 @@ import { Routes } from "../routes";
 import LandingPage from "./LandingPage";
 import MapPage from "./MapPage";
 import JournalPage from "./JournalPage";
+import ConnectPage from "./ConnectPage";
 import DashboardOverview from "./dashboard/DashboardOverview";
 import Settings from "./Settings";
 import Signin from "./examples/Signin";
@@ -86,6 +87,7 @@ export default () => (
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
     <RouteWithSidebar exact path={Routes.Map.path} component={MapPage} />
     <RouteWithSidebar exact path={Routes.Journal.path} component={JournalPage} />
+    <RouteWithSidebar exact path={Routes.Connect.path} component={ConnectPage} />
     {/* <RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} /> */}
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
     {/* <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} /> */}
