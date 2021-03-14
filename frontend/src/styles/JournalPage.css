@@ -1,0 +1,138 @@
+
+
+.nav-link {
+    font-family: 'Catamaran', sans-serif;
+    padding-top: 1.8vh;
+}
+
+.jumbo{
+    margin-top: 2vh;
+    border-radius: 15px;
+}
+
+b{
+    font-family:'Catamaran';
+}
+
+
+.listitem{
+    background-color:rgb(255,255,255,0);
+    font-size:2.25vh;
+    color:#272d2e;
+    border-left:transparent solid 5px;
+}
+
+.listitem:hover{
+    background-color:#e8ebed;
+    color:#272d2e;
+    cursor: pointer;
+}
+
+.listitem.active{
+    border-color: #C7C7C7;
+    border-left:#a2d2ff solid 5px;
+    background-color:rgba(162, 210, 255,0.3);
+    color:#272d2e;
+}
+
+.list {
+    overflow-y:scroll;
+}
+
+.column {
+    overflow-y:scroll;
+    height:80vh;
+}
+
+.ToggleButton.active{
+    font-size: 1.75vh;
+    background-color:  white !important;
+    color: #8CC8F1 !important;
+    border: 3px solid #8CC8F1 !important;
+    width: 100%;
+    text-decoration:none;
+    outline:none;
+    outline-offset: none !important;
+    
+}
+
+.ToggleButton:focus{
+    outline:none !important;
+    border: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+}
+
+.ToggleButton{
+    color: white !important;
+    background-color:  #8CC8F1  !important;
+    border: 3px solid #8CC8F1 !important;
+    width:"100%"
+
+}
+
+.nav-disabled {
+    color: black;
+    opacity: 0.6;
+    cursor:default;
+}
+
+.nav-disabled:hover{
+    color: black;
+    cursor:default;
+
+}
+
+
+.btn-s{
+    color: #8CC8F1;
+    border: 3px solid #8CC8F1 !important;
+}
+
+.btn {
+    font-size: 1.75vh;
+    color: white;
+    background-color:  #8CC8F1;
+    border: none;
+    width: 120%;
+    box-shadow: none !important;    
+    border: 3px solid #8CC8F1 !important;
+}
+
+.btn-small {
+    color: white;
+    background-color:  #8CC8F1;
+    border: none;
+    font-size: 1.75vh;
+    width: 60%;
+}
+
+.btn-secondary {
+    color:white;
+    background-color:  #2E2E41;
+    box-shadow: none !important;
+    border: 3px solid #2E2E41 !important;
+
+}
+
+
+.btn:hover {
+    color:white;
+    background-color:  #2E2E41;
+    border: 3px solid #2E2E41 !important;
+}
+
+.ToggleButton:hover{
+    background-color:  white !important;
+    color: #8CC8F1 !important;
+    border: 3px solid #8CC8F1 !important;
+}
+
+Badge{
+    padding:1px;
+}
+
+.badge-lanos {
+    background-color: #8CC8F1;
+    color: white;
+}
