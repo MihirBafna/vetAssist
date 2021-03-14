@@ -1,26 +1,32 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-vetassist-dev-10220-authRole",
-      "UnauthRoleArn": "arn:aws:iam::982801609512:role/amplify-vetassist-dev-10220-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::982801609512:role/amplify-vetassist-dev-10220-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-vetassist-dev-10220-deployment",
-      "UnauthRoleName": "amplify-vetassist-dev-10220-unauthRole",
-      "StackName": "amplify-vetassist-dev-10220",
-      "StackId": "arn:aws:cloudformation:us-east-1:982801609512:stack/amplify-vetassist-dev-10220/d7974360-848a-11eb-94b0-0a00c5160c23",
-      "AmplifyAppId": "d2wdy1af94n4js"
-    },
-    "categories": {
-      "auth": {
-        "vetassist855bf0fd": {
-          "userPoolId": "us-east-1_6Ry1Wcveh",
-          "userPoolName": "vetassistusers",
-          "webClientId": "6ul9o51778tpvgdm85m28gqp05",
-          "nativeClientId": "4q3j6749k20tii42lfqjjqav0q"
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-vetassist-dev-10220-authRole",
+            "UnauthRoleArn": "arn:aws:iam::982801609512:role/amplify-vetassist-dev-10220-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::982801609512:role/amplify-vetassist-dev-10220-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-vetassist-dev-10220-deployment",
+            "UnauthRoleName": "amplify-vetassist-dev-10220-unauthRole",
+            "StackName": "amplify-vetassist-dev-10220",
+            "StackId": "arn:aws:cloudformation:us-east-1:982801609512:stack/amplify-vetassist-dev-10220/d7974360-848a-11eb-94b0-0a00c5160c23",
+            "AmplifyAppId": "d2wdy1af94n4js"
         },
-        "vetassist3d766669": {}
-      }
+        "categories": {
+            "auth": {
+                "vetassist855bf0fd": {
+                    "userPoolId": "us-east-1_6Ry1Wcveh",
+                    "userPoolName": "vetassistusers",
+                    "webClientId": "6ul9o51778tpvgdm85m28gqp05",
+                    "nativeClientId": "4q3j6749k20tii42lfqjjqav0q"
+                },
+                "vetassist3d766669": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d2wdy1af94n4js",
+                    "type": "cicd"
+                }
+            }
+        }
     }
-  }
 }
