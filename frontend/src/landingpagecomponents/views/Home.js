@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <Hero className="illustration-section-01"  style = {{paddingBottom: 0}}/>
-      <h2 className="center-content" style = {{paddingBottom: 200}}>THIs is more words</h2>
+      <h2 className="center-content" style = {{paddingBottom: 200}}>Providing a virtual support system for veterans in need.</h2>
     </div>
   );
 }

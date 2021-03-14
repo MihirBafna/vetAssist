@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faAtom} from "@fortawesome/free-solid-svg-icons";
 
 import Logo from './partials/Logo';
 import {Routes, Routes as Route} from "../../../routes";
