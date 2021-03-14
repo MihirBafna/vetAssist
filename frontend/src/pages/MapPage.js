@@ -102,10 +102,11 @@ const CustomSkinMap = withScriptjs(
 );
 
 export default  () => {
+  console.log(process.env.REACT_APP_MAP_API_KEY)
   return (
     <>
     <CustomSkinMap
-      googleMapURL=""
+      googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_API_KEY}`}
       loadingElement={<div style={{ height: `100%` }} />}
       containerElement={<div style={{ height: `85vh` }} />}
       mapElement={<div style={{ height: `100%` }} />}

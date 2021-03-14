@@ -44,7 +44,7 @@ useEffect(async () => {
     .then(response => response.json())
     .then(result => {
         console.log(result)
-        setJournalEntries(result)
+        setJournalEntries(result["dummy"])
         // setDashboardElem(opportunityNamesDB[0])
     }
     )
