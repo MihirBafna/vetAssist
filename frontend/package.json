@@ -53,7 +53,7 @@
     "simplebar-react": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "sh -ac '. .env;PUBLIC_URL=./ react-scripts start'",
     "build": "react-scripts build",
     "build-local": "PUBLIC_URL=./ react-scripts build",
     "test": "react-scripts test",
