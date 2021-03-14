@@ -175,10 +175,23 @@ export default function Upload() {
     return(
         <>
         {finished ? <Redirect to='/dashboard/overview'/> : null}
-        <Button onClick={openUpload} variant="primary" className="w-100">
+        <Row style={{marginTop:"50vh"}}>
+            <Col></Col>
+            <Col className={{textAlign:"center"}}>
+            <h1>Upload</h1>
+            </Col>
+            <Col></Col>
+        </Row>
+        <Row>
+            <Col></Col>
+            <Col>
+        <Button onClick={openUpload} variant="primary">
             Upload
         </Button>  
+        </Col>
+        <Col></Col>
         {uploadModal()}
+        </Row>
         </>
     )
 }
