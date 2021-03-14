@@ -5,8 +5,25 @@ import { Col, Row, Button, Dropdown, ButtonGroup} from '@themesberg/react-bootst
 import { ToDoListWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
+import { useEffect } from 'react';
+import {Auth} from 'aws-amplify'
 
 export default () => {
+  useEffect(() => {
+    async function retrieveAttributes() {
+      try{
+
+      
+      let user = await Auth.currentAuthenticatedUser();
+      console.log(user)
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+    retrieveAttributes()
+  })
+
   return (
     <>
       {/* <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
