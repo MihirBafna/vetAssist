@@ -72,10 +72,10 @@ let openDashboard = (e, index) => {
                     <Card border="light" className="shadow-sm ">
                         <Card.Body>
                                 <h3>Previous Journals</h3>
-                                <ListGroup.Item className="listitem" flush>
+                                <ListGroup.Item className="listitem" >
                                     Entry 12: 3/13/21
                                 </ListGroup.Item>
-                                <ListGroup.Item className="listitem" flush>
+                                <ListGroup.Item className="listitem" >
                                     Entry 11: 3/12/21
                                 </ListGroup.Item>
                         </Card.Body>
