@@ -26,15 +26,13 @@ export default () => {
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
             title="Let's check how your week has been!"
-            value="10/10"
-            percentage={1}
+            values= {[24,24,24,25]}
           />
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
           <SalesValueWidgetPhone
             title="Let's check how your week has been!"
-            value="10/10"
-            percentage={1}
+            values= {[24,24,24,25]}
           />
         </Col>
       </Row>

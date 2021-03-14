@@ -3,10 +3,16 @@ import React from "react";
 import Chartist from "react-chartist";
 import ChartistTooltip from 'chartist-plugin-tooltips-updated';
 
-export const SalesValueChart = () => {
+export const SalesValueChart = (props) => {
+  const {vals } = props;
+  var startIndex = 0;
+  if (vals.length < 7) {
+    startIndex = 7 - vals.length
+  }
+  var labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].slice(startIndex,7)
   const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    series: [[1, 2, 2, 3, 3, 4, 3]]
+    labels: labels,
+    series: [vals]
   };
 
   const options = {
@@ -20,8 +26,8 @@ export const SalesValueChart = () => {
     axisY: {
       // On the y-axis start means left and end means right
       showGrid: false,
-      showLabel: false,
-      labelInterpolationFnc: value => `$${value / 1}k`
+      showLabel: true,
+      labelInterpolationFnc: value => `${value / 1}`
     }
   };
 
