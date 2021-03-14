@@ -38,7 +38,8 @@ let entryContent = (props) => (
         </>
     )
 
-useEffect(async () => {
+useEffect(() => {
+    async function fetchData(){
     if( journalEntries.length == 0){
     await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getJournalEntries/incoming_webhook/getJournalEntries?user_id=dummy`)
     .then(response => response.json())
@@ -48,6 +49,8 @@ useEffect(async () => {
         // setDashboardElem(opportunityNamesDB[0])
     }
     )
+}
+fetchData()
 }
 },[])
 
