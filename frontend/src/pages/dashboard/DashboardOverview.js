@@ -10,13 +10,15 @@ import {Auth} from 'aws-amplify'
 
 export default () => {
   const [surveyEntries, setSurveyEntries] = useState([])
+  const [sub, setSub] = useState("")
 
   useEffect(() => {
     async function retrieveAttributes() {
       try{
       let user = await Auth.currentAuthenticatedUser();
       let attr = user["attributes"]
-
+      setSub(attr["sub"])
+      console.log(attr["sub"])
       }
       catch (err) {
         console.log(err)
@@ -27,24 +29,29 @@ export default () => {
 
 useEffect(() => {
     async function fetchData(){
-    if( surveyEntries.length == 0){
-    await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getHappinessScores/incoming_webhook/getHappinessScores?user_id=dummy`)
+    if( surveyEntries.length == 0 && sub != null){
+    await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getHappinessScores/incoming_webhook/getHappinessScores?user_id=`+sub)
     .then(response => response.json())
     .then(result => {
-        console.log(result["dummy"])
+      console.log(result)
+      if(result != null){
+
+      
+      console.log(result[sub])
         var entries = []
-        for (var i = 0; i < result["dummy"].length; i++) {
-          entries.push(result["dummy"][`${i}`]["total_score"]["$numberDouble"])
+        for (var i = 0; i < result[sub].length; i++) {
+          entries.push(result[sub][`${i}`]["total_score"]["$numberDouble"])
         }
         console.log(entries)
         setSurveyEntries(entries)
     }
+  }
     )
     }
 }
 fetchData()
 
-},[])
+},[sub])
 
   return (
     <>
