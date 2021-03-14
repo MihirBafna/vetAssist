@@ -7,18 +7,20 @@ import { Row, Col, Nav, Form, Image, Navbar, Dropdown, Container, ListGroup, Inp
 import { Routes } from "../routes";
 import { Link } from 'react-router-dom';
 import {Auth} from 'aws-amplify'
-import Profile3 from "../assets/img/team/profile-picture-3.jpg";
 
 
 export default (props) => {
 
   const [profUrl, setProfUrl] = useState("")
- 
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
   useEffect(() => {
     async function retrieve() {
       await Auth.currentUserInfo()
       .then( (session) => {
           setProfUrl(session.attributes["custom:profile_picture"])
+          setFirstName(session.attributes["given_name"])
+          setLastName(session.attributes["family_name"])
           return;
       }).catch( (error) => {
           console.log(error);
@@ -41,7 +43,7 @@ export default (props) => {
                 <div className="media d-flex align-items-center">
                   <Image src={profUrl} className="user-avatar md-avatar rounded-circle" />
                   <div className="media-body ms-2 text-dark align-items-center d-none d-lg-block">
-                    <span className="mb-0 font-small fw-bold">Bonnie Green</span>
+                    <span className="mb-0 font-small fw-bold">{firstName} {lastName}</span>
                   </div>
                 </div>
               </Dropdown.Toggle>

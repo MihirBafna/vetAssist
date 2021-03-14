@@ -14,10 +14,9 @@ export default () => {
   useEffect(() => {
     async function retrieveAttributes() {
       try{
-
-      
       let user = await Auth.currentAuthenticatedUser();
-      console.log(user)
+      let attr = user["attributes"]
+
       }
       catch (err) {
         console.log(err)
