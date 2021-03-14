@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Col, Row, Button, Dropdown, ButtonGroup} from '@themesberg/react-bootstrap';
-
+import {Redirect} from 'react-router-dom'
 import { ToDoListWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
 import { PageVisitsTable } from "../../components/Tables";
 import { trafficShares, totalOrders } from "../../data/charts";
@@ -10,16 +10,19 @@ import {Auth} from 'aws-amplify'
 
 export default () => {
   const [surveyEntries, setSurveyEntries] = useState([])
+  const [backHome, setBackHome] = useState(false)
 
   useEffect(() => {
     async function retrieveAttributes() {
       try{
       let user = await Auth.currentAuthenticatedUser();
       let attr = user["attributes"]
-
+      
       }
       catch (err) {
         console.log(err)
+        setBackHome(true)
+        
       }
     }
     retrieveAttributes()
@@ -48,6 +51,7 @@ fetchData()
 
   return (
     <>
+    {backHome ? <Redirect to='/'/> : null}
       {/* <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
 
         <ButtonGroup>
