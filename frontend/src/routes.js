@@ -5,6 +5,7 @@ export const Routes = {
     DashboardOverview: { path: "/dashboard/overview" },
     Map: {path: "/dashboard/map"},
     Journal: {path: "/dashboard/journal"},
+    Connect: {path: "/dashboard/connect"},
     Settings: { path: "/settings" },
     Signin: { path: "/sign-in" },
     Signup: { path: "/sign-up" },

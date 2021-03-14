@@ -67,6 +67,8 @@ fetchData()
 
 },[])
 
+
+
 const listItems = journalEntries.map((entry, index) =>
     <ListGroup.Item href={"#link"+index} className="listitem" onClick={(e) => openDashboard(e,index)}>
         {(new Date(parseInt(entry["date"]["$numberDouble"]))).toString().slice(0,21)}

@@ -298,7 +298,7 @@ export const SalesValueWidget = (props) => {
   const { title, values } = props;
   var value = 0;
   for (var i = 0; i < values.length; i++) {
-    value += values[i]
+    value += Number(values[i])
   }
   var percentage = 0;
   if (values.length >= 1) {
@@ -318,7 +318,7 @@ export const SalesValueWidget = (props) => {
             <span className="me-2">Yesterday</span>
             <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
             <span className={percentageColor}>
-              {percentage}%
+              {percentage*100}%
             </span>
           </small>
         </div>
@@ -337,7 +337,7 @@ export const SalesValueWidgetPhone = (props) => {
   const { title, values } = props;
   var value = 0;
   for (var i = 0; i < values.length; i++) {
-    value += values[i]
+    value += Number(values[i])
   }
   const percentage = value/(values.length*25)
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
@@ -354,7 +354,7 @@ export const SalesValueWidgetPhone = (props) => {
             <span className="me-2">Yesterday</span>
             <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
             <span className={percentageColor}>
-              {percentage}%
+              {percentage*100}%
             </span>
           </small>
         </div>

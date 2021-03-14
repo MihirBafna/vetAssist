@@ -1,22 +1,23 @@
 
 import React from "react";
-import { Col, Row, Button, Dropdown, ButtonGroup} from '@themesberg/react-bootstrap';
+import { Container, Card, Col, Row, Button, Dropdown, ButtonGroup, ListGroup} from '@themesberg/react-bootstrap';
 
-import { ToDoListWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../../components/Widgets";
-import { PageVisitsTable } from "../../components/Tables";
-import { trafficShares, totalOrders } from "../../data/charts";
+import { ToDoListWidget, SalesValueWidget, SalesValueWidgetPhone, AcquisitionWidget } from "../components/Widgets";
 import { useEffect, useState } from 'react';
 import {Auth} from 'aws-amplify'
 
 export default () => {
   const [surveyEntries, setSurveyEntries] = useState([])
+  const [friend, setFriend] = useState(null)
+  const [friendList, setFriendList] = useState([])
 
   useEffect(() => {
     async function retrieveAttributes() {
       try{
-      let user = await Auth.currentAuthenticatedUser();
-      let attr = user["attributes"]
 
+      
+      let user = await Auth.currentAuthenticatedUser();
+      console.log(user)
       }
       catch (err) {
         console.log(err)
@@ -24,6 +25,19 @@ export default () => {
     }
     retrieveAttributes()
   })
+
+  const listItems = friendList.map((entry, index) =>
+    <ListGroup.Item href={"#link"+index} className="listitem" onClick={(e) => viewFriend(e,index)}>
+        {(new Date(parseInt(entry["date"]["$numberDouble"]))).toString().slice(0,21)}
+    </ListGroup.Item>
+);
+
+let viewFriend = (e, index) => {
+    console.log(friendList[index])
+    e.preventDefault()
+    setFriend(friendList[index])
+
+}
 
 useEffect(() => {
     async function fetchData(){
@@ -46,6 +60,7 @@ fetchData()
 
 },[])
 
+
   return (
     <>
       {/* <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
@@ -55,16 +70,27 @@ fetchData()
           <Button variant="outline-primary" size="sm">Export</Button>
         </ButtonGroup>
       </div> */}
-      <Row className="justify-content-md-center">
-        <Col xs={12} className="mb-4 d-none d-sm-block">
-          <ToDoListWidget
-          />
+    <Container>
+    <Row className="justify-content-md-center">
+        <Col>
+            <Card border="light" className="shadow-sm">
+            <Card.Header className="border-bottom border-light d-flex justify-content-between">
+                <h5 className="mb-0">Choose friends to connect with!</h5>
+                {/* <Button variant="secondary" size="sm" style={{width:"30vh"}}>See all</Button> */}
+            </Card.Header>
+            <Card.Body>
+                <ListGroup className="list-group-flush list my--3">
+                </ListGroup>
+            </Card.Body>
+            </Card>
         </Col>
-      </Row>
-      <Row className="justify-content-md-center">
+    </Row>
+    <br/>
+    {friend != null ?  
+    <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
-            title="Let's check how your week has been!"
+            title= "Check in on your friends!"
             values= {surveyEntries}
           />
         </Col>
@@ -75,6 +101,11 @@ fetchData()
           />
         </Col>
       </Row>
+      : null
+    }
+   
+    </Container>
+      
     </>
   );
 };
