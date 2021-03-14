@@ -1,0 +1,16 @@
+{
+  "auth": {
+    "vetassist3d766669": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "storage": {
+    "vetassistprofpics": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}

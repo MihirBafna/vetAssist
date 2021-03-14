@@ -14,4 +14,6 @@ export const Routes = {
     NotFound: { path: "/404" },
     ServerError: { path: "/500" },
 
+    
+
 };

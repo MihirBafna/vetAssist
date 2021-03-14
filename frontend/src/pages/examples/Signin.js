@@ -4,15 +4,39 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faEnvelope, faUnlockAlt } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { Col, Row, Form, Card, Button, FormCheck, Container, InputGroup } from '@themesberg/react-bootstrap';
-import { Link } from 'react-router-dom';
-
+import { Link, Redirect } from 'react-router-dom';
+import {useState} from 'react'
+import {Auth} from 'aws-amplify'
 import { Routes } from "../../routes";
 import BgImage from "../../assets/img/illustrations/signin.svg";
 
 
 export default () => {
+  const[email, setEmail] = useState("")
+  const[password, setPassword] = useState("")
+  const [loggedIn, setLoggedIn] = useState(false)
+  let signInClick = (e) => {
+    e.preventDefault()
+    cognitoSignIn()
+  }
+  async function cognitoSignIn(){
+    try{
+        const user = await Auth.signIn(email, password);
+        setLoggedIn(true)
+    } catch (error) {
+        console.log('error signing in', error);
+        // setIsError(true)
+        // if (error.message == "Custom auth lambda trigger is not configured for the user pool.") {
+        //     setError("Invalid password, or password is empty.")
+        // } else {
+        //     setError(error.message)
+        // }
+    }
+}
+
   return (
     <main>
+      {loggedIn ? <Redirect to='/dashboard/overview'/> : null}
       <section className="d-flex align-items-center my-5 mt-lg-6 mb-lg-5">
         <Container>
           <p className="text-center">
@@ -33,7 +57,7 @@ export default () => {
                       <InputGroup.Text>
                         <FontAwesomeIcon icon={faEnvelope} />
                       </InputGroup.Text>
-                      <Form.Control autoFocus required type="email" placeholder="example@company.com" />
+                      <Form.Control autoFocus required type="email" placeholder="example@company.com" onChange={(e) => setEmail(e.target.value)}/>
                     </InputGroup>
                   </Form.Group>
                   <Form.Group>
@@ -43,7 +67,7 @@ export default () => {
                         <InputGroup.Text>
                           <FontAwesomeIcon icon={faUnlockAlt} />
                         </InputGroup.Text>
-                        <Form.Control required type="password" placeholder="Password" />
+                        <Form.Control required type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                       </InputGroup>
                     </Form.Group>
                     <div className="d-flex justify-content-between align-items-center mb-4">
@@ -54,25 +78,11 @@ export default () => {
                       <Card.Link className="small text-end">Lost password?</Card.Link>
                     </div>
                   </Form.Group>
-                  <Button variant="primary" type="submit" className="w-100">
+                  <Button onClick={signInClick}variant="primary" type="submit" className="w-100">
                     Sign in
                   </Button>
                 </Form>
 
-                <div className="mt-3 mb-4 text-center">
-                  <span className="fw-normal">or login with</span>
-                </div>
-                <div className="d-flex justify-content-center my-4">
-                  <Button variant="outline-light" className="btn-icon-only btn-pill text-facebook me-2">
-                    <FontAwesomeIcon icon={faFacebookF} />
-                  </Button>
-                  <Button variant="outline-light" className="btn-icon-only btn-pill text-twitter me-2">
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </Button>
-                  <Button variant="outline-light" className="btn-icon-only btn-pil text-dark">
-                    <FontAwesomeIcon icon={faGithub} />
-                  </Button>
-                </div>
                 <div className="d-flex justify-content-center align-items-center mt-4">
                   <span className="fw-normal">
                     Not registered?
