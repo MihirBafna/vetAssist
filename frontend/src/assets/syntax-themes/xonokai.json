@@ -58,7 +58,7 @@
         "atrule",
         "attr-name",
         "keyword",
-        "important",
+        "",
         "deleted"
       ],
       "style": {
@@ -85,7 +85,7 @@
     },
     {
       "types": [
-        "important",
+        "",
         "statement",
         "bold"
       ],
