@@ -36,6 +36,7 @@
     "bootstrap": "5.0.0-beta1",
     "chartist": "^0.11.4",
     "chartist-plugin-tooltips-updated": "^0.1.4",
+    "lodash": "^4.17.21",
     "moment-timezone": "^0.5.31",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
@@ -74,5 +75,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "prop-types": "^15.7.2"
   }
 }

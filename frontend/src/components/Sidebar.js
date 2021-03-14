@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBookMedical, faChartPie, faCog, faMapMarkedAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes, faUserFriends} from "@fortawesome/free-solid-svg-icons";
+import { faBook,faAtom, faBookMedical, faChartPie, faCog, faMapMarkedAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes, faUserFriends} from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -96,7 +96,7 @@ export default (props = {}) => {
               </Nav.Link>
             </div>
             <Nav className="flex-column pt-3 pt-md-0">
-              <NavItem title="VetConnect" link={Routes.LandingPage.path} image={ReactHero} />
+              <NavItem  title="VetConnect" link={Routes.LandingPage.path} icon={faAtom} />
               <Dropdown.Divider className="my-3 border-indigo" />
 
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />

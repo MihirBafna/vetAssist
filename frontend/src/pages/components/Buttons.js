@@ -23,7 +23,7 @@ export default () => {
         <Documentation
           title="Example"
           description={
-            <p>The <code>&#x3C;Button&#x3E;</code> component is an important part of the UI that you can use for user actions. If you want to change the appearance of a given button, you can update the modifier props of the <code>variant</code> attribute.</p>
+            <p>The <code>&#x3C;Button&#x3E;</code> component is an  part of the UI that you can use for user actions. If you want to change the appearance of a given button, you can update the modifier props of the <code>variant</code> attribute.</p>
           }
           scope={{ Button }}
           imports={`import { Button } from '@themesberg/react-bootstrap';`}

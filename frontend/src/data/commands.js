@@ -32,7 +32,7 @@ export default [
         "id": 5,
         "name": "eject",
         "usage": ["yarn eject", "npm run eject"],
-        "description": "This command will remove the single build dependency from your project. \nImportant! We don't recommend using this command because \nour product may break after using it.",
+        "description": "This command will remove the single build dependency from your project. \n! We don't recommend using this command because \nour product may break after using it.",
         "link": 7
     }
 ];

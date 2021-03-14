@@ -10,7 +10,7 @@
 
 .section-header {
     position: relative;
-    padding-top: $spacer * 9;
+    //padding-top: $spacer * 9;
     padding-bottom: $spacer * 3;
 }
 
@@ -18,15 +18,15 @@
     .section {
         position: relative;
         padding-top: $spacer * 5;
-        padding-bottom: $spacer * 5;
+        //padding-bottom: $spacer * 5;
     }
     .section-header {
         position: relative;
         padding-top: $spacer * 8;
-        padding-bottom: $spacer * 8;
+        // padding-bottom: $spacer * 8;
         &.section-sm{
             padding-top: $spacer * 4;
-            padding-bottom: $spacer * 3;
+           // padding-bottom: $spacer * 3;
         }
     }
     .section-xl {
@@ -47,7 +47,7 @@
     .section {
         position: relative;
         padding-top: $spacer * 6;
-        padding-bottom: $spacer * 6;
+       // padding-bottom: $spacer * 6;
     }
     .section-header {
         position: relative;
@@ -55,20 +55,20 @@
         padding-bottom: $spacer * 10;
         &.section-sm{
             padding-top: $spacer * 4;
-            padding-bottom: $spacer * 3;
+           // padding-bottom: $spacer * 3;
         }
     }
     .section-xl {
         padding-top: $spacer * 10;
-        padding-bottom: $spacer * 10;
+       // padding-bottom: $spacer * 10;
     }
     .section-lg {
         padding-top: $spacer * 8;
-        padding-bottom: $spacer * 8;
+     //   padding-bottom: $spacer * 8;
     }
     .section-sm {
         padding-top: $spacer * 4;
-        padding-bottom: $spacer * 4;
+     //   padding-bottom: $spacer * 4;
     }
 }
 
