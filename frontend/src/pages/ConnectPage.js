@@ -39,19 +39,21 @@ let viewFriend = (e, index) => {
 
 }
 
+
 useEffect(() => {
     async function fetchData(){
-    if( surveyEntries.length == 0){
-    await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getHappinessScores/incoming_webhook/getHappinessScores?user_id=dummy`)
+    if( friendList.length == 0){
+    var user_id = "Amira Raynor"
+    await fetch("https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getFriends/incoming_webhook/getFriends?user_id=Amira Raynor")
     .then(response => response.json())
     .then(result => {
-        console.log(result["dummy"])
+        console.log(result)
         var entries = []
-        for (var i = 0; i < result["dummy"].length; i++) {
-          entries.push(result["dummy"][`${i}`]["total_score"]["$numberDouble"])
-        }
-        console.log(entries)
-        setSurveyEntries(entries)
+        // for (var i = 0; i < result["dummy"].length; i++) {
+        //   entries.push(result["dummy"][`${i}`]["total_score"]["$numberDouble"])
+        // }
+        console.log(result[0])
+        setFriend(result[0])
     }
     )
     }
@@ -80,6 +82,7 @@ fetchData()
             </Card.Header>
             <Card.Body>
                 <ListGroup className="list-group-flush list my--3">
+                    Erich Reilly
                 </ListGroup>
             </Card.Body>
             </Card>
@@ -90,14 +93,14 @@ fetchData()
     <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
-            title= "Check in on your friends!"
-            values= {surveyEntries}
+            title= "Check in on Erich!"
+            values= {[20,15,18,23,25]}
           />
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
           <SalesValueWidgetPhone
-            title="Let's check how your week has been!"
-            values= {surveyEntries}
+            title="Check in on Erich!"
+            values= {[20,15,18,23,25]}
           />
         </Col>
       </Row>
