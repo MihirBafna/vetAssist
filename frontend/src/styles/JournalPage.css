@@ -30,8 +30,8 @@ b{
 
 .listitem.active{
     border-color: #C7C7C7;
-    border-left:#a2d2ff solid 5px;
-    background-color:rgba(162, 210, 255,0.3);
+    border-left:#a2d2ff solid 5px !important;
+    background-color:rgba(162, 210, 255,0.3) !important;
     color:#272d2e;
 }
 
@@ -44,32 +44,6 @@ b{
     height:80vh;
 }
 
-.ToggleButton.active{
-    font-size: 1.75vh;
-    background-color:  white !important;
-    color: #8CC8F1 !important;
-    border: 3px solid #8CC8F1 !important;
-    width: 100%;
-    text-decoration:none;
-    outline:none;
-    outline-offset: none !important;
-    
-}
-
-.ToggleButton:focus{
-    outline:none !important;
-    border: none !important;
-    outline-offset: none !important;
-    box-shadow: none !important;
-}
-
-.ToggleButton{
-    color: white !important;
-    background-color:  #8CC8F1  !important;
-    border: 3px solid #8CC8F1 !important;
-    width:"100%"
-
-}
 
 .nav-disabled {
     color: black;

@@ -295,10 +295,17 @@ export const RankingWidget = () => {
 };
 
 export const SalesValueWidget = (props) => {
-  const { title, value, percentage } = props;
+  const { title, values } = props;
+  var value = 0;
+  for (var i = 0; i < values.length; i++) {
+    value += values[i]
+  }
+  var percentage = 0;
+  if (values.length >= 1) {
+    percentage = Math.round((values[values.length-1] - values[values.length-2])/values[values.length-2]*100)/100
+  }
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
-
   return (
     <Card className="shadow-sm">
       <Card.Header className="d-flex flex-row align-items-center flex-0">
@@ -306,7 +313,7 @@ export const SalesValueWidget = (props) => {
           <h3 className="fw-normal mb-2">
             {title}
           </h3>
-          <h3>{value}</h3>
+          <h3>{value}/{(values.length*25)}</h3>
           <small className="fw-bold mt-2">
             <span className="me-2">Yesterday</span>
             <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />
@@ -320,17 +327,21 @@ export const SalesValueWidget = (props) => {
         </div>
       </Card.Header>
       <Card.Body className="p-2">
-        <SalesValueChart />
+        <SalesValueChart vals={values} />
       </Card.Body>
     </Card>
   );
 };
 
 export const SalesValueWidgetPhone = (props) => {
-  const { title, value, percentage } = props;
+  const { title, values } = props;
+  var value = 0;
+  for (var i = 0; i < values.length; i++) {
+    value += values[i]
+  }
+  const percentage = value/(values.length*25)
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
   const percentageColor = percentage < 0 ? "text-danger" : "text-success";
-
   return (
     <Card className=" shadow-sm">
       <Card.Header className="d-md-flex flex-row align-items-center flex-0">
@@ -338,7 +349,7 @@ export const SalesValueWidgetPhone = (props) => {
           <h3 className="fw-normal mb-2">
             {title}
           </h3>
-          <h3>{value}</h3>
+          <h3>{value}/{(values.length*25)}</h3>
           <small className="fw-bold mt-2">
             <span className="me-2">Yesterday</span>
             <FontAwesomeIcon icon={percentageIcon} className={`${percentageColor} me-1`} />

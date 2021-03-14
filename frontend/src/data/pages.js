@@ -36,7 +36,7 @@ export default [
         "id": 4,
         "name": "Sign In",
         "image": SignInImg,
-        "link": Routes.Signin
+        "link": Routes.Signin.path
     },
     {
         "id": 5,

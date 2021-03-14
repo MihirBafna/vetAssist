@@ -1,8 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
+
 import Logo from './partials/Logo';
+import {Routes, Routes as Route} from "../../../routes";
+import Button from "../elements/Button";
 
 const propTypes = {
   navPosition: PropTypes.string,
@@ -117,7 +120,9 @@ const Header = ({
                       className="list-reset header-nav-right"
                     >
                       <li>
-                        <Link to="#0" className="button button-primary button-wide-mobile button-sm"  onClick={closeMenu}>Sign in</Link>
+                        <Button tag="a" color="primary" as={Link} wideMobile href={"#" + Routes.Signin.path} style={{backgroundColor: "#8CC8F1"}}>
+                          Sign In
+                        </Button>
                       </li>
                     </ul>}
                 </div>
