@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 import { useLocation } from "react-router-dom";
 import { CSSTransition } from 'react-transition-group';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBook, faBookMedical, faChartPie, faCog, faMapMarkedAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faBookMedical, faChartPie, faCog, faMapMarkedAlt, faHandHoldingUsd, faSignOutAlt, faTable, faTimes, faUserFriends} from "@fortawesome/free-solid-svg-icons";
 import { Nav, Badge, Image, Button, Dropdown, Accordion, Navbar } from '@themesberg/react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -102,6 +102,7 @@ export default (props = {}) => {
               <NavItem title="Dashboard" link={Routes.DashboardOverview.path} icon={faChartPie} />
               <NavItem title="Journal" icon={faBookMedical} link={Routes.Journal.path} />
               <NavItem title="Map" icon={faMapMarkedAlt} link={Routes.Map.path} />
+              <NavItem title="Connect" icon={faUserFriends} link={Routes.Connect.path} />
 
               {/* <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>
                 <NavItem title="Bootstrap Table" link={Routes.BootstrapTables.path} />
