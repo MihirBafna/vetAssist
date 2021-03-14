@@ -10,7 +10,7 @@ export default () => {
   const [surveyEntries, setSurveyEntries] = useState([])
   const [friend, setFriend] = useState(null)
   const [friendList, setFriendList] = useState([])
-
+const [name, setName] = useState("")
   useEffect(() => {
     async function retrieveAttributes() {
       try{
@@ -93,13 +93,13 @@ fetchData()
     <Row className="justify-content-md-center">
         <Col xs={12} className="mb-4 d-none d-sm-block">
           <SalesValueWidget
-            title= "Check in on Erich!"
+            title= "Check in on Amira!"
             values= {[20,15,18,23,25]}
           />
         </Col>
         <Col xs={12} className="mb-4 d-sm-none">
           <SalesValueWidgetPhone
-            title="Check in on Erich!"
+            title="Check in on Amira!"
             values= {[20,15,18,23,25]}
           />
         </Col>

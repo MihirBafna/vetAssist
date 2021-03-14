@@ -3,12 +3,29 @@ import { Col, Row, Button, Dropdown, ButtonGroup, Card, ListGroup, Image} from '
 import '../styles/JournalPage.css'
 import {useEffect, useState} from 'react'
 import notebook from '../assets/img/illustrations/notebook.svg'
-
+import {Auth} from "aws-amplify"
 
 
 export default function JournalPage(){
 const [journalEntries, setJournalEntries] = useState([])
 const [dashboardElem, setDashboardElem] = useState(null)
+const [sub, setSub] = useState("")
+  useEffect(() => {
+    async function retrieveAttributes() {
+      try{
+      let user = await Auth.currentAuthenticatedUser();
+      let attr = user["attributes"]
+      
+      setSub(attr["sub"])
+      console.log(attr["sub"])
+      }
+      catch (err) {
+        console.log(err)
+        
+      }
+    }
+    retrieveAttributes()
+  })
 
 const entryContent = (props) => 
         (
@@ -55,17 +72,19 @@ const defaultEntryContent = () =>
 useEffect(() => {
     async function fetchData(){
     if( journalEntries.length == 0){
-    await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getJournalEntries/incoming_webhook/getJournalEntries?user_id=dummy`)
+    await fetch(`https://us-east-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/vetassist-gazyj/service/getJournalEntries/incoming_webhook/getJournalEntries?user_id=`+sub)
     .then(response => response.json())
     .then(result => {
-        setJournalEntries(result["dummy"])
+        if(result != null){
+            setJournalEntries(result[sub])
+        }
     }
     )
     }
 }
 fetchData()
 
-},[])
+},[sub])
 
 
 
