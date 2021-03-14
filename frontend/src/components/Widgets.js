@@ -301,7 +301,7 @@ export const SalesValueWidget = (props) => {
     value += Number(values[i])
   }
   var percentage = 0;
-  if (values.length >= 1) {
+  if (values.length >= 2) {
     percentage = Math.round((values[values.length-1] - values[values.length-2])/values[values.length-2]*100)/100
   }
   const percentageIcon = percentage < 0 ? faAngleDown : faAngleUp;
