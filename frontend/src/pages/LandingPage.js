@@ -8,7 +8,7 @@ import AppRoute from "../landingpagecomponents/utils/AppRoute";
 
 
 const LandingPage = () => {
-
+    
     const childRef = useRef();
     let location = useLocation();
 

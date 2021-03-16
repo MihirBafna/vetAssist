@@ -18,6 +18,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 
 // core styles
+import "../src/styles/index.css"
 import "./landingpagecomponents/assets/scss/style.scss";
 import "./scss/volt.scss";
 
