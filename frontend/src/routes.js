@@ -15,7 +15,7 @@ export const Routes = {
     Upload: {path: "/upload"},
     NotFound: { path: "/404" },
     ServerError: { path: "/500" },
-
+    PrivacyPolicy: {path: "/privacy-policy"}
     
 
 };

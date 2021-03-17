@@ -17,6 +17,7 @@ import Lock from "./examples/Lock";
 import NotFoundPage from "./examples/NotFound";
 import ServerError from "./examples/ServerError";
 import Upload from "./Upload"
+import PrivacyPolicy from "./PrivacyPolicy"
 // components
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
@@ -82,6 +83,7 @@ export default () => (
     <RouteWithLoader exact path={Routes.NotFound.path} component={NotFoundPage} />
     <RouteWithLoader exact path={Routes.ServerError.path} component={ServerError} />
     <RouteWithLoader exact path={Routes.Upload.path} component={Upload} />
+    <RouteWithLoader exact path={Routes.PrivacyPolicy.path} component={PrivacyPolicy} />
 
     {/* pages */}
     <RouteWithSidebar exact path={Routes.DashboardOverview.path} component={DashboardOverview} />
